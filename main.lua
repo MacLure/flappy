@@ -73,7 +73,7 @@ function love.update(dt)
 
   spawnTimer = spawnTimer + dt
 
-  if spawnTimer > 2 then
+  if spawnTimer > 1 then
     local y = math.max(-PIPE_HEIGHT + 10,
       math.min(lastY + math.random(-20, 20), VIRTUAL_HEIGHT - 90 - PIPE_HEIGHT))
     
@@ -87,7 +87,10 @@ function love.update(dt)
 
   for k, pair in pairs(pipePairs) do
     pair:update(dt)
-    if pair.x < -pair.width then
+  end
+
+  for k, pair in pairs(pipePairs) do
+    if pair.remove then
       table.remove(pipePairs, k)
     end
   end
@@ -102,7 +105,7 @@ function love.draw()
   push:start()
   love.graphics.draw(bg, -bgScroll, 42)
 
-  for k,pair in pairs(piprPairs) do
+  for k, pair in pairs(pipePairs) do
     pair:render()
   end
 
