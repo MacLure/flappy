@@ -13,12 +13,14 @@ function PlayState:init(dt)
   self.pipePairs = {}
   self.timer = 0
   self.score = 0
+  self.interval = 0
   self.lastY = -PIPE_HEIGHT  + math.random(80) + 20
 end
 
 function PlayState:update(dt)
   self.timer = self.timer + dt
-  if self.timer > 1 then
+  self.interval = math.random(0.8, 20)
+  if self.timer > self.interval then
     local y = math.max(-PIPE_HEIGHT + 10,
       math.min(self.lastY + math.random(-20, 20), VIRTUAL_HEIGHT - 90 - PIPE_HEIGHT))
     self.lasyY = y

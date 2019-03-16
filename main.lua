@@ -92,7 +92,7 @@ function love.update(dt)
     % BG_LOOPING_POINT
 
   groundScroll = (groundScroll + GROUND_SCROLL_SPEED * dt)
-    % VIRTUAL_WIDTH
+    % BG_LOOPING_POINT
 
   gStateMachine:update(dt)
 
