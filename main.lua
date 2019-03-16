@@ -39,6 +39,16 @@ function love.load()
   cheriFont2 = love.graphics.newFont('cheri.ttf', 32)
   cheriFont3 = love.graphics.newFont('cheri.ttf', 64)
   love.graphics.setFont(cheriFont2)
+
+  sounds = {
+    ['jump'] = love.audio.newSource('sounds/jump.wav', 'static'),
+    ['point'] = love.audio.newSource('sounds/point.wav', 'static'),
+    ['death'] = love.audio.newSource('sounds/death.wav', 'static'),
+    ['music'] = love.audio.newSource('sounds/RV428I.mp3', 'static'),
+  }
+
+  sounds['music']:setLooping(true)
+  sounds['music']:play()
   
   push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
     vsync = true,

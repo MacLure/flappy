@@ -7,7 +7,7 @@ function PipePair:init(y)
     self.y = y
     self.pipes = {
         ['upper'] = Pipe('top', self.y),
-        ['lower'] = Pipe('bottom', self.y + PIPE_HEIGHT + GAP_HEIGHT)
+        ['lower'] = Pipe('bottom', self.y + PIPE_HEIGHT + math.random(90, 150))
     }
     self.remove = false
     self.scored = false
