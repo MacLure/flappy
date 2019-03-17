@@ -24,8 +24,8 @@ local bg = love.graphics.newImage('images/bg.png')
 local bgScroll = 0
 local groundScroll = 0
 
-local BG_SCROLL_SPEED = 60
-local GROUND_SCROLL_SPEED = 120
+BG_SCROLL_SPEED = 60
+GROUND_SCROLL_SPEED = 120
 
 local BG_LOOPING_POINT = 1536 - 512
 local GROUND_LOOPING_POINT = 1536 - 512
@@ -44,12 +44,20 @@ function love.load()
     ['jump'] = love.audio.newSource('sounds/jump.wav', 'static'),
     ['point'] = love.audio.newSource('sounds/point.wav', 'static'),
     ['death'] = love.audio.newSource('sounds/death.wav', 'static'),
+    ['pause'] = love.audio.newSource('sounds/pause.wav', 'static'),
+    ['medal'] = love.audio.newSource('sounds/medal.wav', 'static'),
     ['music'] = love.audio.newSource('sounds/RV428I.mp3', 'static'),
   }
 
   sounds['music']:setLooping(true)
   sounds['music']:play()
   
+  medals = {
+    ['medal1'] = love.graphics.newImage('images/quality.png'),
+    ['medal2'] = love.graphics.newImage('images/badge.png'),
+    ['medal3'] = love.graphics.newImage('images/medal.png')
+  }
+
   push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
     vsync = true,
     fullscreen = false,
